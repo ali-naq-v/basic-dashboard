@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet"> 
+  <title>My Website</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" type="image/png" href="/assets/images/favicon.png" />
+</head>
+<body>
+
+<div class="parent">
+    <header class="blue section" >
+      <div class="logo">
+        <img src="logo_transparent.png">
+      </div>
+      <div class="title">Ontario Covid</div>
+  
+    
+    </header>
+    
+    <main class="coral">
+      <div class="grid-item">
+        <canvas id="chart"></canvas>
+      </div>
+
+      <div class="grid-item">
+        <canvas id="chart2"></canvas>
+      </div>
+      <div class="grid-item">
+        <canvas id="chart3"></canvas>
+      </div>
+
+      <div class="grid-item">
+        <canvas id="chart4"></canvas>
+      </div>
+    </main>
+    </div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+<script type="module" src="scripts.js"></script>
+</html>
