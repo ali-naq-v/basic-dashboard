@@ -3,7 +3,7 @@ import CovidChart from './charting.js'
 function fetchCovidData() {
 
     const endpoint = window.encodeURI(`http://192.168.1.51:3000/covid/`);
-    console.log("bro entry");
+    // console.log("bro entry");
     return fetch(endpoint)
         .then(res =>
             res.json()
@@ -39,6 +39,7 @@ function displayCovidData() {
             const _testCompleted = entry["Total tests completed in the last day"];
             const confirmedPositive = entry["Confirmed Positive"];
             
+            
               const oneDaysPercentagePositiveResults = _testCompleted === 0 || _testCompleted == null  ? null : roundThis((confirmedPositive / _testCompleted) * 100);
             //const oneDaysPercentagePositiveResults = (confirmedPositive / _testCompleted) * 100;
              confirmedPositiveCovidPercentageOfTest.push(oneDaysPercentagePositiveResults);
@@ -46,11 +47,11 @@ function displayCovidData() {
             reportDateArray.push(entry["Reported Date"])
             
         });
-        
-        reportDateArray = reportDateArray.slice(Math.max(reportDateArray.length - 49,0))
-        console.log(reportDateArray);
-        testsCompleted = testsCompleted.slice(Math.max(testsCompleted.length - 49,0))
-        confirmedPositiveCovidPercentageOfTest = confirmedPositiveCovidPercentageOfTest.slice(Math.max(confirmedPositiveCovidPercentageOfTest.length - 49,0))
+        console.log(confirmedPositiveCovidPercentageOfTest)
+        reportDateArray = reportDateArray.slice(Math.max(reportDateArray.length - 55,0))
+    
+        testsCompleted = testsCompleted.slice(Math.max(testsCompleted.length - 55,0))
+        confirmedPositiveCovidPercentageOfTest = confirmedPositiveCovidPercentageOfTest.slice(Math.max(confirmedPositiveCovidPercentageOfTest.length - 55,0))
 
         CovidChart("chart", reportDateArray, testsCompleted, "# of Tests Completed (in '000's)"); 
         CovidChart("chart2", reportDateArray, confirmedPositiveCovidPercentageOfTest, "Positive Covid Test Results (in %'s)"); 
