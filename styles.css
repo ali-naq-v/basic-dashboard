@@ -74,7 +74,7 @@ div {
   header > .logo {
     display: flex;
   
-   justify-content: end;
+   justify-content: flex-end;
   }
   .logo > img {width: 100%}
   main {
