@@ -9,6 +9,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "browser-sync": "^2.26.0 <2.26.3"
+    "browser-sync": "^2.26.0 <2.26.3",
+    "browserify": "^16.5.2",
+    "gulp": "^4.0.0",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "tsify": "^5.0.0",
+    "typescript": "^3.9.7",
+    "vinyl-source-stream": "^2.0.0"
   }
 }
