@@ -1,5 +1,5 @@
 import CovidChart from './charting.js'
-console.log("WTF AMI EXIST??");
+console.log("WTF AMI EXIST FOR REALL?22222????");
 
 function fetchCovidData() {
 
