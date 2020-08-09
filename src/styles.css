@@ -73,7 +73,6 @@ div {
 
   header > .logo {
     display: flex;
-  
    justify-content: flex-end;
   }
   .logo > img {width: 100%}
@@ -82,6 +81,7 @@ div {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    
   }
 
   
@@ -90,34 +90,31 @@ div {
      flex: 1 1 300px;
      
     margin: 20px;
-    -webkit-box-shadow: -8px -9px 5px -6px #415A77;
--moz-box-shadow: -8px -9px 5px -6px #415A77;
-box-shadow: -8px -9px 5px -6px #415A77;
-    border-radius: 4px 4px 4px 4px;
-    -moz-border-radius: 4px 4px 4px 4px;
-    -webkit-border-radius: 4px 4px 4px 4px;
-    border: 30px;
-    padding:20px;
+    border-style: solid;
+
+    border-color: rgb(71, 70, 70);
+  
+    border-width: 1px;
+    
+    border-radius: 4px;
+    
+    /* box-sizing: border-box; */
+    box-shadow: rgba(248, 245, 245, 0.13) 0px 1px 3px 0px;
+    
 
   }
 
-  .grid-item:hover {
-    -webkit-box-shadow: -8px -9px 5px -6px #778DA9;
-    -moz-box-shadow: -8px -9px 5px -6px #778DA9;
-    box-shadow: -8px -9px 5px -6px #778DA9;
-        border-radius: 4px 4px 4px 4px;
-        -moz-border-radius: 4px 4px 4px 4px;
-        -webkit-border-radius: 4px 4px 4px 4px;
-  }
+  
 
   @media only screen and (min-width: 900px) {
     .grid-item {
       flex: 0 1 700px;  
+      /* border-bottom-color: purple; */
   }
  .logo > img {width: 30%}
 }
 .coral {
-    background-color: #1B263B;
+    background-color: #212121;
     /* background-color: white; */
 }
 /* #chart{

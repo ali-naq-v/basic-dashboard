@@ -1,4 +1,4 @@
-import CovidChart from './charting.js'
+import CovidChart from './charting'
 console.log("WTF AMI EXIST FOR REALL?22222????");
 
 function fetchCovidData() {

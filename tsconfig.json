@@ -1,5 +1,5 @@
 {
-    "files": ["scripts.ts", "charting.ts"],
+    "files": ["src/scripts.ts", "src/charting.ts"],
     "compilerOptions": {
       "noImplicitAny": true,
       "target": "es5"
