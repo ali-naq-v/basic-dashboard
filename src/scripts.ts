@@ -3,7 +3,7 @@ console.log("WTF AMI EXIST FOR REALL?22222????");
 
 function fetchCovidData() {
 
-    const endpoint: string = window.encodeURI(`http://192.168.1.51:3000/covid/`);
+    const endpoint: string = window.encodeURI(`https://nl81s06nk2.execute-api.ca-central-1.amazonaws.com/Prod/covid/`);
 
     return fetch(endpoint)
         .then(res =>
