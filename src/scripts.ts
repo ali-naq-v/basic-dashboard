@@ -1,5 +1,6 @@
 import CovidChart from './charting'
-console.log("HAPPY PPLZ223333");
+import ChartWithApex from './apex-charting'
+
 
 function fetchCovidData() {
 
@@ -68,13 +69,14 @@ function displayCovidData() : void {
         confirmedDeathsDoubling = getLastEntries(confirmedDeathsDoubling, last_x_days);
 
 
-        CovidChart("chart", reportDateArray, testsCompleted, "# of Tests Completed (in '000's)");
-        CovidChart("chart6", reportDateArray, confirmedPositive, "# of Active Positive Covid Cases");
-        CovidChart("chart2", reportDateArray, confirmedPositiveCovidPercentageOfTest, "Positive Covid Test Results (in %'s)");
+        ChartWithApex("#chart", reportDateArray, testsCompleted, "# of Tests Completed (in '000's)");
+        ChartWithApex("#chart6", reportDateArray, confirmedPositive, "# of Active Positive Covid Cases");
+        ChartWithApex("#chart2", reportDateArray, confirmedPositiveCovidPercentageOfTest, "Positive Covid Test Results (in %'s)");
 
-        CovidChart("chart3", reportDateArray, covidInHospital, "# of Patients in Hospital");
-        CovidChart("chart4", reportDateArray, confirmedPositiveDoubling, "# of Days for Positive Cases To Double"); 
-        CovidChart("chart5", reportDateArray, confirmedPositiveDoubling, "# of Days for Deaths To Double"); 
+        ChartWithApex("#chart3", reportDateArray, covidInHospital, "# of Patients in Hospital");
+        ChartWithApex("#chart4", reportDateArray, confirmedPositiveDoubling, "# of Days for Positive Cases To Double"); 
+        ChartWithApex("#chart5", reportDateArray, confirmedPositiveDoubling, "# of Days for Deaths To Double"); 
+        // ChartWithApex("#chart7", reportDateArray, confirmedPositive, "# of Active Positive Covid Cases" );
 
         // const html = renderData(data);
         // mainSection.insertAdjacentHTML('beforeend', html);
