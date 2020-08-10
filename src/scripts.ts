@@ -1,5 +1,5 @@
 import CovidChart from './charting'
-console.log("WTF AMI EXIST FOR REALL?22222????");
+console.log("HAPPY PPLZ223333");
 
 function fetchCovidData() {
 
@@ -28,6 +28,7 @@ function displayCovidData() : void {
     let reportDateArray : Array<string> = []
     let testsCompleted : Array<number> = []
     let confirmedPositiveCovidPercentageOfTest : Array<number> = []
+    let confirmedPositive : Array<number> = [];
     let covidInHospital : Array<bigint> = [];
     let confirmedPositiveDoubling : Array<bigint> = [];
     let confirmedDeathsDoubling : Array<bigint> = [];
@@ -41,14 +42,15 @@ function displayCovidData() : void {
 
         data.map((entry : any) => {
             const _testCompleted : number | null = entry["Total tests completed in the last day"];
-            const confirmedPositive : number | null = entry["Confirmed Positive"];
+            const _confirmedPositive : number | null = entry["Confirmed Positive"];
             const hospitalCovid : bigint | null = entry["Number of patients hospitalized with COVID-19"];
             const _confirmedPositiveDoubling : bigint | null = entry["Number of Days for Cumulative Confirmed Positive to Double"];
             const _confirmedDeathsDoubling : bigint | null = entry["Number of Days for Deaths to Double"];
 
 
-            const oneDaysPercentagePositiveResults : any = _testCompleted === 0 || _testCompleted == null ? null : roundThis((confirmedPositive / _testCompleted) * 100);
+            const oneDaysPercentagePositiveResults : any = _testCompleted === 0 || _testCompleted == null ? null : roundThis((_confirmedPositive / _testCompleted) * 100);
             confirmedPositiveCovidPercentageOfTest.push(oneDaysPercentagePositiveResults);
+            confirmedPositive.push(_confirmedPositive);
             testsCompleted.push(_testCompleted / 1000);
             covidInHospital.push(hospitalCovid);
             reportDateArray.push(entry["Reported Date"]);
@@ -59,6 +61,7 @@ function displayCovidData() : void {
         const last_x_days = 55;
         reportDateArray = getLastEntries(reportDateArray, last_x_days);
         testsCompleted = getLastEntries(testsCompleted, last_x_days);
+        confirmedPositive = getLastEntries(confirmedPositive, last_x_days);
         confirmedPositiveCovidPercentageOfTest = getLastEntries(confirmedPositiveCovidPercentageOfTest, last_x_days);
         covidInHospital = getLastEntries(covidInHospital, last_x_days);
         confirmedPositiveDoubling = getLastEntries(confirmedPositiveDoubling, last_x_days);
@@ -66,6 +69,7 @@ function displayCovidData() : void {
 
 
         CovidChart("chart", reportDateArray, testsCompleted, "# of Tests Completed (in '000's)");
+        CovidChart("chart6", reportDateArray, confirmedPositive, "# of Active Positive Covid Cases");
         CovidChart("chart2", reportDateArray, confirmedPositiveCovidPercentageOfTest, "Positive Covid Test Results (in %'s)");
 
         CovidChart("chart3", reportDateArray, covidInHospital, "# of Patients in Hospital");

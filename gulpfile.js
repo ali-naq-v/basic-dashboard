@@ -39,14 +39,15 @@ gulp.task(
   })
 );
 
-// function bundle() {
-//   return watchedBrowserify
-//     .bundle()
-//     .on("error", fancy_log)
-//     .pipe(source("bundle.js"))
-//     .pipe(gulp.dest("dist"));
-// }
+function bundle() {
+  return watchedBrowserify
+    .bundle()
+    .on("error", fancy_log)
+    .pipe(source("bundle.js"))
+    .pipe(gulp.dest("dist"));
+}
 
-// gulp.task("default", gulp.series(gulp.parallel("copy-html"), bundle));
-// watchedBrowserify.on("update", bundle);
-// watchedBrowserify.on("log", fancy_log);
+gulp.task("dev", gulp.series(gulp.parallel("copy-html"), bundle));
+watchedBrowserify.on("update", bundle);
+watchedBrowserify.on("log", fancy_log);
+
