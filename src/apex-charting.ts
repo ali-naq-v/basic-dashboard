@@ -1,3 +1,4 @@
+import {roundThis} from './utils'
 import ApexCharts = require('apexcharts');
 import { removeMonthsTooCloseToEachOther, getFirstOfTheMonthEntriesWhileNullingOutOtherDates } from './chart-utils'
 
@@ -71,13 +72,38 @@ export default function ChartWithApex(htmlTagId: string, x_labels: Array<any>, y
                     return x_labels[value - 1]
                 }
             },
+        },
+        markers: {
+            size: 0.1,
+            colors: undefined,
+            strokeColors: '#fff',
+            strokeWidth: 2,
+            strokeOpacity: 0.9,
+            strokeDashArray: 0,
+            fillOpacity: 1,
+            discrete: [{
+                seriesIndex: 0,
+                dataPointIndex: y_data.length - 1,
+                fillColor: '#e3e3e3',
+                strokeColor: '#fff',
+                size: 3
+              }],
+            shape: "circle",
+            radius: 2
         }
+        
 
 
     };
-    const thisTag = document.querySelector(htmlTagId)
+    const thisTag : HTMLDivElement = document.querySelector(htmlTagId)
+    const figure : HTMLElement =  thisTag.getElementsByTagName("figure")[0];
+    const figureBackground : HTMLElement =  thisTag.getElementsByTagName("figcaption")[0];
+    const lastItemOfY : number =  <number>(y_data[y_data.length-1])
+    
+    const content  = document.createTextNode(String(roundThis(lastItemOfY)));
+    figureBackground.appendChild(content);
 
-    const chart: ApexCharts = new ApexCharts(thisTag, options);
+    const chart: ApexCharts = new ApexCharts(figure, options);
 
     chart.render();
 }

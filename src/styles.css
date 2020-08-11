@@ -88,7 +88,7 @@ main {
   box-shadow: rgba(248, 245, 245, 0.13) 0px 1px 3px 0px;
 }
 
-.grid-stat {
+figcaption {
   font-size: 200px;
   
   /* position: absolute;

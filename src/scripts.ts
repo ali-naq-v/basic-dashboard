@@ -1,6 +1,6 @@
 import CovidChart from './charting'
 import ChartWithApex from './apex-charting'
-
+import {getLastEntries, roundThis} from './utils'
 
 function fetchCovidData() {
 
@@ -33,6 +33,8 @@ function displayCovidData() : void {
     let covidInHospital : Array<bigint> = [];
     let confirmedPositiveDoubling : Array<bigint> = [];
     let confirmedDeathsDoubling : Array<bigint> = [];
+
+
 
     // function renderData(data) {
     //     return `<h1> ${data[0]["Reported Date"]} </h1>`;
@@ -85,14 +87,13 @@ function displayCovidData() : void {
     );
 }
 
-function getLastEntries(thisArray : Array<any>, x : number) : Array<any> {
-    console.log("mother father");
-    return thisArray.slice(Math.max(thisArray.length - x, 0));
-}
+// function getLastEntries(thisArray : Array<any>, numberOfEntries : number) : Array<any> {
+//     return thisArray.slice(Math.max(thisArray.length - numberOfEntries, 0));
+// }
 
 
-function roundThis(int : number) : number {
-    return Number((int).toFixed(2));
-}
+// function roundThis(int : number) : number {
+//     return Number((int).toFixed(2));
+// }
 
 displayCovidData();
