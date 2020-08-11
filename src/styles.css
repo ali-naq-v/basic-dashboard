@@ -89,7 +89,7 @@ main {
 }
 
 figcaption {
-  font-size: 200px;
+  font-size: calc(50px + 7vw);
   
   /* position: absolute;
   border: 1px solid red;
