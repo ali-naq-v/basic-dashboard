@@ -1,5 +1,5 @@
 {
-    "files": ["src/scripts.ts", "src/charting.ts", "src/apex-charting.ts", "src/chart-utils.ts", "src/utils.ts"],
+    "files": ["src/scripts.ts", "src/apex-charting.ts", "src/chart-utils.ts", "src/utils.ts"],
     "compilerOptions": {
       "noImplicitAny": true,
       "target": "es5"

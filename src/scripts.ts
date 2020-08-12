@@ -1,4 +1,4 @@
-import CovidChart from './charting'
+// import CovidChart from './charting'
 import ChartWithApex from './apex-charting'
 import {getLastEntries, roundThis} from './utils'
 

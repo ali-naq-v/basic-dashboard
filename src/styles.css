@@ -36,7 +36,7 @@ table {
 /* CSS resets ^^ */
 
 body {
-  background-color: #0D1B2A;
+  background-color: #000000;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -119,7 +119,7 @@ figcaption {
 }
 
 .coral {
-  background-color: #212121;
+  background-color: #000000;
   /* background-color: white; */
 }
 
