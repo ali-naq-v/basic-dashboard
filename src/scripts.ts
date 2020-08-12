@@ -46,12 +46,13 @@ function displayCovidData() : void {
         data.map((entry : any) => {
             const _testCompleted : number | null = entry["Total tests completed in the last day"];
             const _confirmedPositive : number | null = entry["Confirmed Positive"];
+            const _dailyConfirmedPositive : number | null = entry["Daily Confirmed Positive"];
             const hospitalCovid : bigint | null = entry["Number of patients hospitalized with COVID-19"];
             const _confirmedPositiveDoubling : bigint | null = entry["Number of Days for Cumulative Confirmed Positive to Double"];
             const _confirmedDeathsDoubling : bigint | null = entry["Number of Days for Deaths to Double"];
 
 
-            const oneDaysPercentagePositiveResults : any = _testCompleted === 0 || _testCompleted == null ? null : roundThis((_confirmedPositive / _testCompleted) * 100, 2);
+            const oneDaysPercentagePositiveResults : any = _testCompleted === 0 || _testCompleted == null ? null : roundThis((_dailyConfirmedPositive / _testCompleted) * 100, 2);
             confirmedPositiveCovidPercentageOfTest.push(oneDaysPercentagePositiveResults);
             confirmedPositive.push(_confirmedPositive);
             testsCompleted.push(_testCompleted / 1000);
@@ -73,7 +74,7 @@ function displayCovidData() : void {
 
         ChartWithApex("#chart6", reportDateArray, testsCompleted, "Tested", "K");
         ChartWithApex("#chart", reportDateArray, confirmedPositive, "Confirmed Positive");
-        ChartWithApex("#chart2", reportDateArray, confirmedPositiveCovidPercentageOfTest, "Confirmed Positive Tests ", "%");
+        ChartWithApex("#chart2", reportDateArray, confirmedPositiveCovidPercentageOfTest, "Percent Positivity", "%");
 
         ChartWithApex("#chart3", reportDateArray, covidInHospital, "Hospitalizations");
         ChartWithApex("#chart4", reportDateArray, confirmedPositiveDoubling, "Days To Double Infections"); 

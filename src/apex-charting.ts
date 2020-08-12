@@ -63,7 +63,7 @@ export default function ChartWithApex(htmlTagId: string, x_labels: Array<any>, y
                     colors: axes_colour,
                     fontFamily: 'Roboto'
                 },
-                formatter: (value : any) => { return value }
+                formatter: (value : any) => { return roundThis(value, 1) }
             }
         },
         tooltip: {
