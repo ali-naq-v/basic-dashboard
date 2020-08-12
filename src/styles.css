@@ -55,11 +55,11 @@ header {
   background: #778da9;
   grid-template-columns: minmax(1px, 10%) 1fr;
   align-items: center;
-  padding: 2rem;
+  padding: 0.5rem;
 }
 
 header>.title {
-  font-size: 30px;
+  font-size: 35px;
 }
 
 header>.logo {
@@ -75,19 +75,23 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  padding-top: 20px;
 }
 
 .grid-item {
+  transition-duration: 0.3s;
   flex: 1 1 300px;
   margin: 20px;
-  border-style: solid;
+  /* border-style: solid;
   border-color: rgb(71, 70, 70);
   border-width: 1px;
-  border-radius: 4px;
+  border-radius: 4px; */
   /* box-sizing: border-box; */
   box-shadow: rgba(248, 245, 245, 0.13) 0px 1px 3px 0px;
 }
-
+.grid-item:hover{
+  color: white;
+}
 figcaption {
   font-size: calc(50px + 7vw);
   
@@ -96,11 +100,13 @@ figcaption {
   top: 50px;
   left: 69px; */
   /* margin: auto; */
+  
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 
 @media only screen and (min-width: 900px) {
   .grid-item {

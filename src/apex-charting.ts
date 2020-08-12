@@ -2,7 +2,7 @@ import {roundThis} from './utils'
 import ApexCharts = require('apexcharts');
 import { removeMonthsTooCloseToEachOther, getFirstOfTheMonthEntriesWhileNullingOutOtherDates } from './chart-utils'
 
-export default function ChartWithApex(htmlTagId: string, x_labels: Array<any>, y_data: Array<any>, chart_title: string): void {
+export default function ChartWithApex(htmlTagId: string, x_labels: Array<any>, y_data: Array<any>, chart_title: string, chart_unit?: string): void {
 
     let mod_x_labels = getFirstOfTheMonthEntriesWhileNullingOutOtherDates(x_labels);
     mod_x_labels = removeMonthsTooCloseToEachOther(25, mod_x_labels);
@@ -35,10 +35,10 @@ export default function ChartWithApex(htmlTagId: string, x_labels: Array<any>, y
             offsetY: 0,
             floating: false,
             style: {
-                fontSize: '14px',
+                fontSize: '30px',
 
                 fontFamily: 'Roboto',
-                color: '#D85D4C'
+                color: '#778DA9'
             },
         },
         colors: ['#778DA9'],
@@ -51,6 +51,7 @@ export default function ChartWithApex(htmlTagId: string, x_labels: Array<any>, y
             labels: {
                 style: {
                     colors: axes_colour,
+                    fontSize:  '10px',
                     fontFamily: 'Roboto',
 
                 },
@@ -98,9 +99,9 @@ export default function ChartWithApex(htmlTagId: string, x_labels: Array<any>, y
     const thisTag : HTMLDivElement = document.querySelector(htmlTagId)
     const figure : HTMLElement =  thisTag.getElementsByTagName("figure")[0];
     const figureBackground : HTMLElement =  thisTag.getElementsByTagName("figcaption")[0];
-    const lastItemOfY : number =  <number>(y_data[y_data.length-1])
-    
-    const content  = document.createTextNode(String(roundThis(lastItemOfY)));
+    const lastItemOfY : number =  <number>(y_data[y_data.length-1]);
+    const suffixContent : string | null = chart_unit ? chart_unit : "";
+    const content  = document.createTextNode(String(roundThis(lastItemOfY, 1)) + suffixContent);
     figureBackground.appendChild(content);
 
     const chart: ApexCharts = new ApexCharts(figure, options);

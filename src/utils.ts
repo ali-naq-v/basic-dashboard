@@ -3,6 +3,6 @@ export function getLastEntries(thisArray : Array<any>, numberOfEntries : number)
 }
 
 
-export function roundThis(int : number) : number {
-    return Number((int).toFixed(2));
+export function roundThis(int : number, numberOfDecimals: number) : number {
+    return Number((int).toFixed(numberOfDecimals));
 }

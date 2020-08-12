@@ -46,7 +46,7 @@ function displayCovidData() {
             const _confirmedDeathsDoubling = entry["Number of Days for Deaths to Double"];
 
 
-            const oneDaysPercentagePositiveResults = _testCompleted === 0 || _testCompleted == null ? null : roundThis((confirmedPositive / _testCompleted) * 100);
+            const oneDaysPercentagePositiveResults = _testCompleted === 0 || _testCompleted == null ? null : roundThis((confirmedPositive / _testCompleted) * 100, 2);
             confirmedPositiveCovidPercentageOfTest.push(oneDaysPercentagePositiveResults);
             testsCompleted.push(_testCompleted / 1000);
             covidInHospital.push(hospitalCovid);

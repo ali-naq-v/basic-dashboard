@@ -51,7 +51,7 @@ function displayCovidData() : void {
             const _confirmedDeathsDoubling : bigint | null = entry["Number of Days for Deaths to Double"];
 
 
-            const oneDaysPercentagePositiveResults : any = _testCompleted === 0 || _testCompleted == null ? null : roundThis((_confirmedPositive / _testCompleted) * 100);
+            const oneDaysPercentagePositiveResults : any = _testCompleted === 0 || _testCompleted == null ? null : roundThis((_confirmedPositive / _testCompleted) * 100, 2);
             confirmedPositiveCovidPercentageOfTest.push(oneDaysPercentagePositiveResults);
             confirmedPositive.push(_confirmedPositive);
             testsCompleted.push(_testCompleted / 1000);
@@ -71,13 +71,13 @@ function displayCovidData() : void {
         confirmedDeathsDoubling = getLastEntries(confirmedDeathsDoubling, last_x_days);
 
 
-        ChartWithApex("#chart", reportDateArray, testsCompleted, "# of Tests Completed (in '000's)");
-        ChartWithApex("#chart6", reportDateArray, confirmedPositive, "# of Active Positive Covid Cases");
-        ChartWithApex("#chart2", reportDateArray, confirmedPositiveCovidPercentageOfTest, "Positive Covid Test Results (in %'s)");
+        ChartWithApex("#chart6", reportDateArray, testsCompleted, "Tested", "K");
+        ChartWithApex("#chart", reportDateArray, confirmedPositive, "Confirmed Positive");
+        ChartWithApex("#chart2", reportDateArray, confirmedPositiveCovidPercentageOfTest, "Confirmed Positive Tests ", "%");
 
-        ChartWithApex("#chart3", reportDateArray, covidInHospital, "# of Patients in Hospital");
-        ChartWithApex("#chart4", reportDateArray, confirmedPositiveDoubling, "# of Days for Positive Cases To Double"); 
-        ChartWithApex("#chart5", reportDateArray, confirmedPositiveDoubling, "# of Days for Deaths To Double"); 
+        ChartWithApex("#chart3", reportDateArray, covidInHospital, "Hospitalizations");
+        ChartWithApex("#chart4", reportDateArray, confirmedPositiveDoubling, "Days To Double Infections"); 
+        ChartWithApex("#chart5", reportDateArray, confirmedPositiveDoubling, "Days To Double Deaths"); 
         // ChartWithApex("#chart7", reportDateArray, confirmedPositive, "# of Active Positive Covid Cases" );
 
         // const html = renderData(data);
