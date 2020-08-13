@@ -90,18 +90,34 @@ main {
 
 .grid-item {
   color: #2155BF;
+  
+  
   transition-duration: 0.3s;
   flex: 0 1 700px;
   margin: 20px;
+
+
+  background-color: #73591F;
+	border-radius: 5px;
+	box-shadow: 0px 10px 20px -10px rgba(0,0,0,0.75);
+	color: #B3B8CD;
+	padding-top: 10px;
+	/* position: relative; */
+	width: 350px;
+	max-width: 100%;
+	text-align: center;
   /* border-style: solid;
   border-color: rgb(71, 70, 70);
-  border-width: 1px;
+  border-width: 2px;
   border-radius: 4px; */
   /* box-sizing: border-box; */
-  box-shadow: rgba(248, 245, 245, 0.13) 0px 1px 3px 0px;
+  /* box-shadow: rgba(248, 245, 245, 0.13) 0px 1px 3px 0px; */
 }
 .grid-item:hover{
   color:#BF880D;
+}
+figure {
+  border-color: #2C4373;
 }
 figcaption {
   font-size: calc(50px + 7vw);
