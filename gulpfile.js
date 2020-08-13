@@ -46,8 +46,13 @@ function bundle() {
     .pipe(source("bundle.js"))
     .pipe(gulp.dest("dist"));
 }
-
-gulp.task("dev", gulp.series(gulp.parallel("copy-html"), bundle));
+function htmlwatch() {
+  return gulp.watch("src/*.html").on('change', gulp.series("copy-html"))
+}
+function csswatch() {
+  return gulp.watch("src/*.css").on('change', gulp.series("copy-html"))
+}
+gulp.task("dev", gulp.series(gulp.parallel("copy-html"), bundle, gulp.parallel(htmlwatch, csswatch)));
 watchedBrowserify.on("update", bundle);
 watchedBrowserify.on("log", fancy_log);
 

@@ -6,7 +6,7 @@ export default function ChartWithApex(htmlTagId: string, x_labels: Array<any>, y
 
     let mod_x_labels = getFirstOfTheMonthEntriesWhileNullingOutOtherDates(x_labels);
     mod_x_labels = removeMonthsTooCloseToEachOther(25, mod_x_labels);
-    const axes_colour: string = "#FEFEFE";
+    const axes_colour: string = "#BF880D";
     console.log("in Apex " + htmlTagId);
     const options: object = {
         chart: {
@@ -35,10 +35,10 @@ export default function ChartWithApex(htmlTagId: string, x_labels: Array<any>, y
             offsetY: 0,
             floating: false,
             style: {
-                fontSize: '30px',
+                fontSize: '15px',
 
                 fontFamily: 'Roboto',
-                color: '#778DA9'
+                color: '#FFFFFF'
             },
         },
         colors: ['#778DA9'],
@@ -56,6 +56,14 @@ export default function ChartWithApex(htmlTagId: string, x_labels: Array<any>, y
 
                 },
             }
+            ,axisBorder: {
+                show: false,
+                color: '#BF880D',
+                height: 1,
+                width: '100%',
+                offsetX: 0,
+                offsetY: 0
+            },
         },
         yaxis: {
             labels: {

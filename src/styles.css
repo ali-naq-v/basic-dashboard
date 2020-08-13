@@ -36,13 +36,14 @@ table {
 /* CSS resets ^^ */
 
 body {
-  background-color: #000000;
+  background-color: #2C4373;
+  
   font-family: 'Roboto', sans-serif;
 }
 
-div {
+/* div {
   color: #3E4557;
-}
+} */
 
 .parent {
   display: grid;
@@ -52,35 +53,45 @@ div {
 
 header {
   display: grid;
-  background: #778da9;
-  grid-template-columns: minmax(1px, 10%) 1fr;
+  background: #2155BF;
+  color: white ;
+  
+  grid-template-columns: 1fr 10fr;
   align-items: center;
   padding: 0.5rem;
 }
 
 header>.title {
-  font-size: 35px;
+  font-size: calc(0.9rem + 1.2vw);
+  
 }
 
 header>.logo {
   display: flex;
+  
   justify-content: flex-end;
+  
 }
 
 .logo>img {
-  width: 100%
+  width: calc(2rem + 1vw);
 }
 
 main {
   display: flex;
+  
   flex-wrap: wrap;
   justify-content: center;
+  justify-self: center;
   padding-top: 20px;
+  max-width: 1500px;
+  width: calc(100vw - 2em);
 }
 
 .grid-item {
+  color: #2155BF;
   transition-duration: 0.3s;
-  flex: 1 1 300px;
+  flex: 0 1 700px;
   margin: 20px;
   /* border-style: solid;
   border-color: rgb(71, 70, 70);
@@ -90,7 +101,7 @@ main {
   box-shadow: rgba(248, 245, 245, 0.13) 0px 1px 3px 0px;
 }
 .grid-item:hover{
-  color: white;
+  color:#BF880D;
 }
 figcaption {
   font-size: calc(50px + 7vw);
@@ -108,18 +119,18 @@ figcaption {
 }
 
 
-@media only screen and (min-width: 900px) {
+/* @media only screen and (min-width: 900px) {
   .grid-item {
     flex: 0 1 700px;
-    /* border-bottom-color: purple; */
+    
   }
   .logo>img {
     width: 30%
   }
-}
+} */
 
 .coral {
-  background-color: #000000;
+  background-color: #2C4373;
   /* background-color: white; */
 }
 
