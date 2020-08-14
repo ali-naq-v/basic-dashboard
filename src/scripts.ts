@@ -72,6 +72,10 @@ function displayCovidData() : void {
         confirmedDeathsDoubling = getLastEntries(confirmedDeathsDoubling, last_x_days);
 
 
+        document.querySelector("#loading").classList.add("hidden");
+
+        setTemplate("#ontario-chart");
+
         ChartWithApex("#chart6", reportDateArray, testsCompleted, "Tested", "K");
         ChartWithApex("#chart", reportDateArray, confirmedPositive, "Confirmed Positive");
         ChartWithApex("#chart2", reportDateArray, confirmedPositiveCovidPercentageOfTest, "Percent Positivity", "%");
@@ -88,13 +92,20 @@ function displayCovidData() : void {
     );
 }
 
-// function getLastEntries(thisArray : Array<any>, numberOfEntries : number) : Array<any> {
-//     return thisArray.slice(Math.max(thisArray.length - numberOfEntries, 0));
-// }
+function setTemplate(templateId : string) {
+    if ('content' in document.createElement('template')) {
+        // browser supports templating
+        
+        const template : HTMLTemplateElement = document.querySelector(templateId);
+        const cloned_template = template.content.cloneNode(true);
+        const body : HTMLElement = document.getElementsByTagName('main')[0];
+        body.appendChild(cloned_template);
+        
+    }
+    else {
+        console.log("Get a better browser ffs!");
+    }
+}
 
-
-// function roundThis(int : number) : number {
-//     return Number((int).toFixed(2));
-// }
 
 displayCovidData();

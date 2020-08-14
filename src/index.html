@@ -1,60 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<link rel="stylesheet" href="styles.css">
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
   <title>Covid Dashboard</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" type="image/png" href="logo_transparent.png" />
 </head>
+
 <body>
 
-<div class="parent">
-    <header class="blue section" >
+  <div class="parent">
+    <header class="blue section">
       <div class="logo">
         <img src="logo_transparent.png">
       </div>
       <div class="title">Ontario | Covid-19 </div>
-  
-    
+
+
     </header>
-    
+
     <main class="coral">
-      <div id="chart" class="grid-item">
-        <figcaption></figcaption>
-        <figure ></figure>
-      </div>
-      <div id="chart6" class="grid-item">
-        <figcaption> </figcaption>
-        <figure ></figure>
-      </div>
-      <div id="chart2" class="grid-item">
-        <figcaption> </figcaption>
-        <figure ></figure>
-        
-      </div>
-      <div id="chart3" class="grid-item">
-        <figcaption> </figcaption>
-        <figure ></figure>
-      </div>
-
-      <div id="chart4" class="grid-item">
-        <figcaption></figcaption>
-        <figure></figure>
-      </div>
-      <div  id="chart5" class="grid-item">
-        <figcaption></figcaption>
-        <figure></figure>
-      </div>
-
-      <!-- <div class="grid-item">
-        <div id="chart7"></div>
-      </div> -->
+     <!-- CONTENT AND/OR TEMPLATES LOAD HERE -->
+     
+     <div id="loading" class="lds-dual-ring dead-centerish"></div>
     </main>
-    </div>
+  </div>
 </body>
 
+<!-- <template id="loading">
+<b>LOADING...</b>
+</template> -->
 
+<template id="ontario-chart">
+  <div id="chart" class="grid-item">
+    <figcaption></figcaption>
+    <figure></figure>
+  </div>
+  <div id="chart6" class="grid-item">
+    <figcaption> </figcaption>
+    <figure></figure>
+  </div>
+  <div id="chart2" class="grid-item">
+    <figcaption> </figcaption>
+    <figure></figure>
+
+  </div>
+  <div id="chart3" class="grid-item">
+    <figcaption> </figcaption>
+    <figure></figure>
+  </div>
+
+  <div id="chart4" class="grid-item">
+    <figcaption></figcaption>
+    <figure></figure>
+  </div>
+  <div id="chart5" class="grid-item">
+    <figcaption></figcaption>
+    <figure></figure>
+  </div>
+</template>
 <script type="module" src="bundle.js"></script>
+
 </html>
