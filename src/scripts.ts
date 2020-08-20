@@ -15,7 +15,7 @@ function fetchCovidData() {
 
                 console.log("WTF NOTHONG THERE IDIOT!!!")
             }
-            console.log("okay returning some data i think")
+            // console.log("okay returning some data i think")
             return data
         }
 
@@ -35,13 +35,8 @@ function displayCovidData() : void {
     let confirmedDeathsDoubling : Array<bigint> = [];
 
 
-
-    // function renderData(data) {
-    //     return `<h1> ${data[0]["Reported Date"]} </h1>`;
-    // }
-
     fetchCovidData().then((data) => {
-        console.log(data);
+        // console.log(data);
 
         data.map((entry : any) => {
             const _testCompleted : number | null = entry["Total tests completed in the last day"];
@@ -75,6 +70,7 @@ function displayCovidData() : void {
         document.querySelector("#loading").classList.add("hidden");
 
         setTemplate("#ontario-chart");
+        setUpdatedDate(reportDateArray);
 
         ChartWithApex("#chart6", reportDateArray, testsCompleted, "Tested", "K");
         ChartWithApex("#chart", reportDateArray, confirmedPositive, "Confirmed Positive");
@@ -83,13 +79,17 @@ function displayCovidData() : void {
         ChartWithApex("#chart3", reportDateArray, covidInHospital, "Hospitalizations");
         ChartWithApex("#chart4", reportDateArray, confirmedPositiveDoubling, "Days To Double Infections"); 
         ChartWithApex("#chart5", reportDateArray, confirmedPositiveDoubling, "Days To Double Deaths"); 
-        // ChartWithApex("#chart7", reportDateArray, confirmedPositive, "# of Active Positive Covid Cases" );
-
-        // const html = renderData(data);
-        // mainSection.insertAdjacentHTML('beforeend', html);
+ 
 
     }
     );
+}
+
+function setUpdatedDate(reportDateArray: string[]) {
+    const dateElement: HTMLElement = document.querySelector("#update-date");
+    const lastDate: string = reportDateArray[reportDateArray.length - 1];
+    const dateContent = document.createTextNode("Last Updated: " + String(lastDate));
+    dateElement.appendChild(dateContent);
 }
 
 function setTemplate(templateId : string) {

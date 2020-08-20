@@ -7,7 +7,7 @@ export default function ChartWithApex(htmlTagId: string, x_labels: Array<any>, y
     let mod_x_labels = getFirstOfTheMonthEntriesWhileNullingOutOtherDates(x_labels);
     mod_x_labels = removeMonthsTooCloseToEachOther(25, mod_x_labels);
     const axes_colour: string = "#BF880D";
-    console.log("in Apex " + htmlTagId);
+    // console.log("in Apex " + htmlTagId);
     const options: object = {
         chart: {
             type: 'line',
@@ -49,10 +49,12 @@ export default function ChartWithApex(htmlTagId: string, x_labels: Array<any>, y
         xaxis: {
             categories: mod_x_labels,
             labels: {
+                maxHeight: 120,
                 style: {
                     colors: axes_colour,
-                    fontSize:  '10px',
+                    fontSize:  '0.95vh', // font for mobile
                     fontFamily: 'Roboto',
+                    cssClass: 'apex-font',
 
                 },
             }
@@ -106,13 +108,18 @@ export default function ChartWithApex(htmlTagId: string, x_labels: Array<any>, y
     };
     const thisTag : HTMLDivElement = document.querySelector(htmlTagId)
     const figure : HTMLElement =  thisTag.getElementsByTagName("figure")[0];
-    const figureBackground : HTMLElement =  thisTag.getElementsByTagName("figcaption")[0];
-    const lastItemOfY : number =  <number>(y_data[y_data.length-1]);
-    const suffixContent : string | null = chart_unit ? chart_unit : "";
-    const content  = document.createTextNode(String(roundThis(lastItemOfY, 1)) + suffixContent);
-    figureBackground.appendChild(content);
+
+    setBackgroundOfFigure(thisTag, y_data, chart_unit);
 
     const chart: ApexCharts = new ApexCharts(figure, options);
 
     chart.render();
+}
+
+function setBackgroundOfFigure(thisTag: HTMLDivElement, y_data: any[], chart_unit: string) {
+    const figureBackground: HTMLElement = thisTag.getElementsByTagName("figcaption")[0];
+    const lastItemOfY: number = <number>(y_data[y_data.length - 1]);
+    const suffixContent: string | null = chart_unit ? chart_unit : "";
+    const content = document.createTextNode(String(roundThis(lastItemOfY, 1)) + suffixContent);
+    figureBackground.appendChild(content);
 }
