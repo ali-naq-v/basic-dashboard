@@ -52,9 +52,9 @@ export default function ChartWithApex(htmlTagId: string, x_labels: Array<any>, y
                 maxHeight: 120,
                 style: {
                     colors: axes_colour,
-                    fontSize:  '0.95vh', // font for mobile
+                    fontSize:  '10px', // font for mobile
                     fontFamily: 'Roboto',
-                    cssClass: 'apex-font',
+                    // cssClass: 'apex-font',
 
                 },
             }

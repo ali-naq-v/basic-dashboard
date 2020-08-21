@@ -108,9 +108,9 @@ z-index: 20;
   
 }
 
-#update-date:hover {
+/* #update-date:hover {
   color: red;
-}
+} */
 
 .fade-out {
   animation: fadeOut ease 7s;
@@ -238,6 +238,7 @@ figure {
 figcaption {
   font-size: calc(50px + 7vw);
   
+  
   /* position: absolute;
   border: 1px solid red;
   top: 50px;
@@ -274,11 +275,24 @@ li {
   padding-left: 2em;
 }
 
+/* for landscape screens on mobile usually */
+@media only screen and (max-height: 700px) { 
+  .grid-item {
+    flex: 0 1 400px;
+}
+
+}
+
+
+/* for regular desktop screens */
 @media only screen and (min-width: 800px) { 
 
 nav{
   padding-left: calc(100px + (900 - 100)*(100vw - 800px)/(2000 - 800));
 }
+/* .grid-item {
+  flex: 0 1 700px;
+} */
   .burger-nav {
   display: none;
  
