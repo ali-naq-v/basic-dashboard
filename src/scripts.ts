@@ -112,7 +112,7 @@ function displayCovidData(): void {
     ChartWithApex(
       "#chart5",
       reportDateArray,
-      confirmedPositiveDoubling,
+      confirmedDeathsDoubling,
       "Days To Double Deaths"
     );
   });
