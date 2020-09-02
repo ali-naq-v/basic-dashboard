@@ -16,7 +16,7 @@ export default function ChartWithApex(
     x_labels
   );
   mod_x_labels = removeMonthsTooCloseToEachOther(25, mod_x_labels);
-  const axes_colour: string = "#BF880D";
+  const axes_colour: string = "var(--grid-background-font-hover)";
   // console.log("in Apex " + htmlTagId);
   const options: object = {
     chart: {
@@ -47,10 +47,10 @@ export default function ChartWithApex(
         fontSize: "15px",
 
         fontFamily: "Roboto",
-        color: "#FFFFFF",
+        color: "var(--main-font-colour)",
       },
     },
-    colors: ["#778DA9"],
+    colors: ["var(--chart-line-colour)"],
     series: [
       {
         name: chart_title,
@@ -70,7 +70,7 @@ export default function ChartWithApex(
       },
       axisBorder: {
         show: false,
-        color: "#BF880D",
+        color: "var(--grid-background-font-hover)",
         height: 1,
         width: "100%",
         offsetX: 0,
@@ -99,7 +99,7 @@ export default function ChartWithApex(
     markers: {
       size: 0.1,
       colors: undefined,
-      strokeColors: "#fff",
+      strokeColors: "var(--main-font-colour)",
       strokeWidth: 2,
       strokeOpacity: 0.9,
       strokeDashArray: 0,
@@ -108,8 +108,8 @@ export default function ChartWithApex(
         {
           seriesIndex: 0,
           dataPointIndex: y_data.length - 1,
-          fillColor: "#e3e3e3",
-          strokeColor: "#fff",
+          fillColor: "var(--chart-marker-colour-accent)",
+          strokeColor: "var(--main-font-colour)",
           size: 3,
         },
       ],
