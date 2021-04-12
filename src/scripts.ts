@@ -28,6 +28,9 @@ function displayCovidData(): void {
   let covidInHospital: Array<bigint> = [];
   let confirmedPositiveDoubling: Array<bigint> = [];
   let confirmedDeathsDoubling: Array<bigint> = [];
+  let covidICU: Array<bigint> = [];
+  let covidICUWithVentilator: Array<bigint> = [];
+
 
   fetchCovidData().then((data) => {
     // console.log(data);
@@ -44,6 +47,10 @@ function displayCovidData(): void {
         entry["Number of Days for Cumulative Confirmed Positive to Double"];
       const _confirmedDeathsDoubling: bigint | null =
         entry["Number of Days for Deaths to Double"];
+      const _covidICU: bigint | null =
+        entry["Number of patients in ICU due to COVID-19"];
+      const _covidICUWithVentilator: bigint | null =
+        entry["Number of patients in ICU on a ventilator due to COVID-19"];
 
       const oneDaysPercentagePositiveResults: any =
         _testCompleted === 0 || _testCompleted == null
@@ -58,6 +65,8 @@ function displayCovidData(): void {
       reportDateArray.push(entry["Reported Date"]);
       confirmedPositiveDoubling.push(_confirmedPositiveDoubling);
       confirmedDeathsDoubling.push(_confirmedDeathsDoubling);
+      covidICU.push(_covidICU);
+      covidICUWithVentilator.push(_covidICUWithVentilator);
     });
     const last_x_days = 55;
     reportDateArray = getLastEntries(reportDateArray, last_x_days);
@@ -74,6 +83,14 @@ function displayCovidData(): void {
     );
     confirmedDeathsDoubling = getLastEntries(
       confirmedDeathsDoubling,
+      last_x_days
+    );
+    covidICU = getLastEntries(
+      covidICU,
+      last_x_days
+    );
+    covidICUWithVentilator = getLastEntries(
+      covidICUWithVentilator,
       last_x_days
     );
 
@@ -114,6 +131,18 @@ function displayCovidData(): void {
       reportDateArray,
       confirmedDeathsDoubling,
       "Days To Double Deaths"
+    );
+    ChartWithApex(
+      "#chart7",
+      reportDateArray,
+      covidICU,
+      "Covid ICU Patients"
+    );
+    ChartWithApex(
+      "#chart8",
+      reportDateArray,
+      covidICUWithVentilator,
+      "Covid ICU Patients On Ventilator"
     );
   });
 }
